@@ -1,0 +1,286 @@
+.title-padding{
+    padding: 10px 10px 10px 20px;
+}
+
+h2 b{
+    color: #17856b;
+}
+
+#condition #iCondition{
+    color: orange; 
+    font-size: 60px;
+}
+
+h5 b{
+    color: #17856b;
+}
+
+.padding-box{
+    padding: 20px;
+}
+
+.container-fluid{
+    padding: 15px;
+    background-color: lightgray;
+}
+
+#nav-bg{
+    background-color: #1b2129;
+}
+
+input{
+    padding: 10px;
+}
+
+
+.container-fluid button{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: var(--fnt-size-24);
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 15px;
+    margin-right: 10px;
+    border-radius: 0%;
+}
+
+
+.position-top{
+    margin-bottom: 10px;
+}
+
+.container-fluid input{
+    height: 40px;
+    width: 300px;
+}
+
+.container-fluid .main-div-background{
+    margin: 30px;
+    background-color: #edeff2;
+    color: #17856b;
+    padding: 10px;
+}
+
+.container-fluid .hourly-weather{
+    margin: 30px;
+    background-color: #edeff2;
+    color: #17856b;
+    padding: 10px;
+}
+
+.container-fluid #date{
+    margin-bottom: 5px;
+}
+.container-fluid .weather{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.center-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.center-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding-left: 35%;
+}
+
+.middle{
+    padding-left: 35%;
+}
+
+.container-fluid #lbCondition{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.container-fluid #lbDegree{
+    font-size: var(--fnt-size-36);
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.container-fluid #lbRealFeel{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+dl{
+    margin: 0%;
+}
+
+
+.time{
+    display: flex;
+    flex-direction: row;
+}
+
+.time-main-div{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 4%;
+    margin-right: 20px;
+}
+
+.condition-main-div{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 4%;
+    margin-right: 20px;
+}
+
+.condition{
+    display: flex;
+    flex-direction: row;
+}
+
+.temp-main-div{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 4%;
+    margin-right: 20px;
+}
+
+.temp{
+    display: flex;
+    flex-direction: row;
+}
+
+.realFeel-main-div{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 4%;
+    margin-right: 20px;
+}
+
+.realFeel{
+    display: flex;
+    flex-direction: row;
+}
+
+.wind-main-div{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 4%;
+    margin-right: 20px;
+}
+
+.wind{
+    display: flex;
+    flex-direction: row;
+}
+
+.nearby-place{
+    margin: 30px;
+    background-color: #edeff2;
+    color: #17856b;
+    padding: 10px;
+}
+
+.lb-space{
+    margin-top: 20px;
+    margin-bottom: 0px;
+    margin-left: 40px;
+    margin-right: 15px;
+}
+
+.i-space{
+    margin-top: 20px;
+    margin-bottom: 0px;
+    margin-left: 40px;
+    margin-right: 15px;
+}
+   
+.center-item{
+    display: flex;
+    justify-content: center;
+}
+
+.nearby-grey-bg{
+    background-color: #dedede;
+    margin: 10px;
+    padding: 5px;
+}
+
+.nearby-place-ct-align{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.margin-fiveDays{
+    margin: 2.5%;
+    /* padding: 3%; */
+}
+
+.iConditionFiveDays{
+    color: orange; 
+    font-size: 100px;
+}
+
+.lbfiveDayDegree{
+    font-size: var(--fnt-size-36);
+    margin: 20px;
+}
+
+.lbDays{
+    margin: 20px;
+    color: #17856b;
+    font-size: var(--fnt-size-24);
+    font-weight: bold;
+}
+
+.lbDate{
+    margin-top: 0%;
+    margin-bottom: 30px;
+    margin-left: 0%;
+    margin-right: 0%;
+    color: #17856b;
+    font-size: var(--fnt-size-20);
+}
+
+.lbConditionFiveDays{
+    color: #17856b;
+    font-size: var(--fnt-size-18);
+}
+
+.active{
+    background-color: #1b2129;
+    color: white;
+}
+
+.err-code{
+    font-size: var(--fnt-size-86);
+    padding: 50px;
+    font-weight: bold;
+}
+
+.err-sentence{
+    font-size: var(--fnt-size-36);
+    color: gray;
+    font-weight: bold;
+    margin: 0%;
+}
+
+:root{
+    --fnt-size-18: 18px;
+    --fnt-size-20: 20px;
+    --fnt-size-24: 24px;
+    --fnt-size-36: 36px;
+    --fnt-size-48: 48px;
+    --fnt-size-60: 60px;
+    --fnt-size-72: 72px;
+    --fnt-size-86: 86px;
+}

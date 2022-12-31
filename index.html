@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Forecast</title>
+
+    <!-- Font Awesome -->
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v6.1.2/js/all.js"
+      integrity="sha384-11X1bEJVFeFtn94r1jlvSC7tlJkV2VJctorjswdLzqOJ6ZvYBSZQkaQVXG0R4Flt"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrape -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body onload="defaultScreen()">
+    <!-- main div -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xxl-8 title-padding">
+          <h2><b>MY WEATHER</b></h2>
+
+        </div>
+
+        <div class="col-xxl-4 position-top text-end">
+          <input type="search" placeholder="Phnom Penh, Bangkok..." value="Phnom Penh"/>
+          <button
+            class="btn btn-outline-dark"
+            id="btnSearch"
+            style="border-radius: 25%; margin-bottom: 10px"
+          >
+            <i class="fa-solid fa-magnifying-glass" style="color: grey"></i>
+          </button>
+        </div>
+      </div>
+      <!-- nav bar -->
+      <div class="nav-bar">
+        <nav id="nav-bg">
+          <div class="row">
+            <div class="col-xxl-2">
+              <button class="btn btn-outline-light" id="btnToday">Today</button>
+            </div>
+            <div class="col-xxl-10">
+              <button class="btn btn-outline-light" id="btnFiveDays">
+                5 days Forecast
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div>
+        <!-- current weather -->
+        <div class="main-div-background" id="todayWeather">
+          <div class="row">
+            <div class="col-xxl-10">
+              <div class="padding-box">
+                <h5><b> CURRENT WEATHER </b></h5>
+              </div>
+            </div>
+            <div class="col-xxl-2">
+              <div class="padding-box text-end">
+                <h5 id="date"><b> 31.08.2022 </b></h5>
+              </div>
+            </div>
+          </div>
+          <div class="row weather">
+            <div class="col-xxl-4 center-col col-lg-4 col-md-4" id="condition">
+              <i class="fa-solid fa-sun" id="iCondition"></i>
+              <br />
+              <label id="lbCondition">Sunny</label>
+            </div>
+            <div class="col-xxl-4 col-lg-4 col-md-4 center-col">
+              <label id="lbDegree"> 26&#8451;</label>
+              <label id="lbRealFeel">Real feel 30&#8451;</label>
+            </div>
+            <div class="col-xxl-4 col-lg-4 col-md-4 center-col">
+              <div class="middle">
+                <dl class="row">
+                  <dt class="col-xxl-3">
+                    <label>Sunrise:</label>
+                  </dt>
+                  <dd class="col-xxl-9">
+                    <label id="lbSunrise">7:04 AM</label>
+                  </dd>
+                </dl>
+                <dl class="row">
+                  <dt class="col-xxl-3">
+                    <label>Sunset:</label>
+                  </dt>
+                  <dd class="col-xxl-9">
+                    <label id="lbSunset">5:11 PM</label>
+                  </dd>
+                </dl>
+                <dl class="row">
+                  <dt class="col-xxl-3">
+                    <label>Duration:</label>
+                  </dt>
+                  <dd class="col-xxl-9">
+                    <label id="lbDuration">10:07 hr</label>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- new div for 5 days forcasts -->
+        <!-- <div id="five-day-forcasts"> -->
+        <div class="padding-box main-div-background" id="fiveDaysForecast">
+          <div class="row center-item">
+            <div class="col-xxl-auto center-col margin-fiveDays">
+              <label class="center-item lbDays" id="lbFiveDaysDate1">Tonight</label>
+              <label class="center-item lbDate" id="lbFiveDaysMandD1">JUN 30</label>
+              <i class="fa-solid fa-sun iConditionFiveDays" id="iConditionFiveDays1"></i>
+              <label class="center-item lbfiveDayDegree" id="lbFiveDaysDegree1">24&#8451;</label>
+              <label class="center-item lbConditionFiveDays" id="lbFiveDaysCondition1">Clear, Warm</label>
+            </div>
+            <div class="col-xxl-auto center-col margin-fiveDays">
+              <label class="center-item lbDays" id="lbFiveDaysDate2">Sunday</label>
+              <label class="center-item lbDate" id="lbFiveDaysMandD2">JUL 01</label>
+              <i class="fa-solid fa-sun iConditionFiveDays" id="iConditionFiveDays2"></i>
+              <label class="center-item lbfiveDayDegree" id="lbFiveDaysDegree2">32&#8451;</label>
+              <label class="center-item lbConditionFiveDays" id="lbFiveDaysCondition2">Clear, Warm</label>
+            </div>
+            <div class="col-xxl-auto center-col margin-fiveDays">
+              <label class="center-item lbDays" id="lbFiveDaysDate3">Monday</label>
+              <label class="center-item lbDate" id="lbFiveDaysMandD3">JUL 02</label>
+              <i class="fa-solid fa-sun iConditionFiveDays" id="iConditionFiveDays3"></i>
+              <label class="center-item lbfiveDayDegree" id="lbFiveDaysDegree3">26&#8451;</label>
+              <label class="center-item lbConditionFiveDays" id="lbFiveDaysCondition3">Clear, Warm</label>
+            </div>
+            <div class="col-xxl-auto center-col margin-fiveDays">
+              <label class="center-item lbDays" id="lbFiveDaysDate4">Tuesday</label>
+              <label class="center-item lbDate" id="lbFiveDaysMandD4">JUL 03</label>
+              <i class="fa-solid fa-sun iConditionFiveDays" id="iConditionFiveDays4"></i>
+              <label class="center-item lbfiveDayDegree" id="lbFiveDaysDegree4">28&#8451;</label>
+              <label class="center-item lbConditionFiveDays" id="lbFiveDaysCondition4">Clear, Warm</label>
+            </div>
+            <div class="col-xxl-auto center-col margin-fiveDays">
+              <label class="center-item lbDays" id="lbFiveDaysDate5">Wednesday</label>
+              <label class="center-item lbDate" id="lbFiveDaysMandD5">JUL 04</label>
+              <i class="fa-solid fa-sun iConditionFiveDays" id="iConditionFiveDays5"></i>
+              <label class="center-item lbfiveDayDegree" id="lbFiveDaysDegree5">30&#8451;</label>
+              <label class="center-item lbConditionFiveDays" id="lbFiveDaysCondition5">Clear, Warm</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- 404 Error -->
+        <div class="padding-box main-div-background" id="404Error">
+          <div class="row">
+            <div class="col-xxl-12">
+              <p class="err-code text-center">404</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xxl-12 text-center">
+              <p class="err-sentence">Qwerty Could not be found.</p>
+              <p class="err-sentence">Please enter a different location.</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+      <!-- hourly weather -->
+      <div class="hourly-weather" id="hourslyWeather">
+        <div class="row">
+          <div class="col-xxl-12 text-start">
+            <div class="padding-box">
+              <h5><b> HOURLY </b></h5>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xxl-12">
+            <div class="row time-main-div">
+              <div class="col-xxl-1">
+                <div
+                  class="col-xxl-12 col-lg-12 col-md-12 col-sm-12 text-start"
+                >
+                  <label id="lbFiveDaysDayofWeek"><b>TODAY</b></label>
+                </div>
+              </div>
+              <div class="col-xxl-11 time">
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divH1">
+                  <label id="lbH1">7pm</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divH2">
+                  <label id="lbH2">8pm</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divH3">
+                  <label id="lbH3">9pm</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divH4">
+                  <label id="lbH4">10pm</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divH5">
+                  <label id="lbH5">11pm</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divH6">
+                  <label id="lbH6">12am</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xxl-12">
+            <div class="row wind-main-div">
+              <div class="col-xxl-1">
+                <div
+                  class="col-xxl-12 col-lg-12 col-md-12 col-sm-12 text-start"
+                >
+                  <label>&nbsp;</label>
+                </div>
+              </div>
+              <div class="col-xxl-11 wind">
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divConditionH1">
+                  <i
+                    id="lbConditionH1"
+                    class="fa-solid fa-sun"
+                    style="color: orange; font-size: 60px"
+                  ></i>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divConditionH2">
+                  <i
+                    id="lbConditionH2"
+                    class="fa-solid fa-sun"
+                    style="color: orange; font-size: 60px"
+                  ></i>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divConditionH3">
+                  <i
+                    id="lbConditionH3"
+                    class="fa-solid fa-moon"
+                    style="color: orange; font-size: 60px"
+                  ></i>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divConditionH4">
+                  <i
+                    id="lbConditionH4"
+                    class="fa-solid fa-moon"
+                    style="color: orange; font-size: 60px"
+                  ></i>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divConditionH5">
+                  <i
+                    id="lbConditionH5"
+                    class="fa-solid fa-moon"
+                    style="color: orange; font-size: 60px"
+                  ></i>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divConditionH6">
+                  <i
+                    id="lbConditionH6"
+                    class="fa-solid fa-moon"
+                    style="color: orange; font-size: 60px"
+                  ></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xxl-12">
+            <div class="row condition-main-div">
+              <div class="col-xxl-1">
+                <div
+                  class="col-xxl-12 col-lg-12 col-md-12 col-sm-12 text-start"
+                >
+                  <label><b>Forecast</b></label>
+                </div>
+              </div>
+              <div class="col-xxl-11 condition">
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divForecastH1">
+                  <label id="lbForecastH1">Sunny</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divForecastH2">
+                  <label id="lbForecastH2">Sunny</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divForecastH3">
+                  <label id="lbForecastH3">Clear</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divForecastH4">
+                  <label id="lbForecastH4">Clear</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divForecastH5">
+                  <label id="lbForecastH5">Clear</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divForecastH6">
+                  <label id="lbForecastH6">Clear</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xxl-12">
+            <div class="row temp-main-div">
+              <div class="col-xxl-1">
+                <div
+                  class="col-xxl-12 col-lg-12 col-md-12 col-sm-12 text-start"
+                >
+                  <label><b>Temp(&#8451;)</b></label>
+                </div>
+              </div>
+              <div class="col-xxl-11 temp">
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divTempH1">
+                  <label id="lbTempH1">29&#176;</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divTempH2">
+                  <label id="lbTempH2">28&#176;</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divTempH3">
+                  <label id="lbTempH3">28&#176;</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divTempH4">
+                  <label id="lbTempH4">27&#176;</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divTempH5">
+                  <label id="lbTempH5">27&#176;</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divTempH6">
+                  <label id="lbTempH6">27&#176;</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xxl-12">
+            <div class="row realFeel-main-div">
+              <div class="col-xxl-1">
+                <div
+                  class="col-xxl-12 col-lg-12 col-md-12 col-sm-12 text-start"
+                >
+                  <label><b>RealFeel</b></label>
+                </div>
+              </div>
+              <div class="col-xxl-11 realFeel">
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divRealFeelH1">
+                  <label id="lbRealFeelH1">28&#176;</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divRealFeelH2">
+                  <label id="lbRealFeelH2">27&#176;</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divRealFeelH3">
+                  <label id="lbRealFeelH3">28&#176;</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divRealFeelH4">
+                  <label id="lbRealFeelH4">27&#176;</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divRealFeelH5">
+                  <label id="lbRealFeelH5">27&#176;</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divRealFeelH6">
+                  <label id="lbRealFeelH6">26&#176;</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xxl-12">
+            <div class="row wind-main-div">
+              <div class="col-xxl-1">
+                <div
+                  class="col-xxl-12 col-lg-12 col-md-12 col-sm-12 text-start"
+                >
+                  <label><b>Wind(km/h)</b></label>
+                </div>
+              </div>
+              <div class="col-xxl-11 wind">
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divWindSpeedH1">
+                  <label id="lbWindSpeedH1">11 ESE</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divWindSpeedH2">
+                  <label id="lbWindSpeedH2">9 ESE</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divWindSpeedH3">
+                  <label id="lbWindSpeedH3">6 ESE</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divWindSpeedH4">
+                  <label id="lbWindSpeedH4">6 ESE</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divWindSpeedH5">
+                  <label id="lbWindSpeedH5">6 ESE</label>
+                </div>
+                <div class="col-xxl-2 col-lg-2 col-md-2 col-sm-2 text-center" id="divWindSpeedH6">
+                  <label id="lbWindSpeedH6">7 ESE</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="nearbyPlaces">
+        <!--  nearby place-->
+        <div class="nearby-place">
+          <div class="row">
+            <div class="col-xxl-12">
+              <div class="padding-box">
+                <h5><b> NEARBY PLACES </b></h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xxl-6 center-col center-item">
+              <div class="row nearby-grey-bg">
+                <div class="col-xxl-12 nearby-place-ct-align">
+                  <label class="lb-space text-start">Kandal</label>
+                  <div class="center-item">
+                    <i
+                      class="fa-solid fa-sun i-space text-start"
+                      style="color: orange; font-size: 30px"
+                    ></i>
+                    <label class="lb-space text-start">36&#8451;</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row nearby-grey-bg">
+                <div class="col-xxl-12 nearby-place-ct-align">
+                  <label class="lb-space text-start">Kompong Cham</label>
+                  <div class="center-item">
+                    <i
+                      class="fa-solid fa-sun i-space text-start"
+                      style="color: orange; font-size: 30px"
+                    ></i>
+                    <label class="lb-space text-start">36&#8451;</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xxl-6 center-col center-item">
+              <div class="row nearby-grey-bg">
+                <div class="col-xxl-12 nearby-place-ct-align">
+                  <label class="lb-space text-start">Kompot</label>
+                  <div class="center-item">
+                    <i
+                      class="fa-solid fa-sun i-space text-start"
+                      style="color: orange; font-size: 30px"
+                    ></i>
+                    <label class="lb-space text-start">30&#8451;</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row nearby-grey-bg">
+                <div class="col-xxl-12 nearby-place-ct-align">
+                  <label class="lb-space text-start">Kep</label>
+                  <div class="center-item">
+                    <i
+                      class="fa-solid fa-sun i-space text-start"
+                      style="color: orange; font-size: 30px"
+                    ></i>
+                    <label class="lb-space text-start">28&#8451;</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
