@@ -1,5 +1,5 @@
 const baseEndpoint = "http://api.openweathermap.org/";
-const apiKey = "f9a5203cbf432d2c17301894dbf366bf";
+// const apiKey = "Your_API_Key"
 
 // GETTING TODAY DATA
 
