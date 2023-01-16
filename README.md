@@ -11,5 +11,5 @@ Please notice that this project is not responsive for mobile and tablet screens.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		-- Bootstrap <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		-- JQuery <br/>
 &nbsp;&nbsp;&nbsp;	>> Text editor <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	-- VS Code <br/>
-https://weather-forecast-step-project.web.app/
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	-- VS Code <br/> <br/>
+&nbsp;&nbsp;	Link: https://weather-forecast-step-project.web.app/
